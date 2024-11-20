@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Money</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container header">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <a class="navbar-brand ps-3 fw-bold" href="#">💸 My Money</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#pemasukan">Pemasukan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#pengeluaran">Pengeluaran</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container mt-5">
+        
+        <div class="row mt-2 pt-3" id="home">
+            <div class="text-center mt-5 mb-5">
+                <span class="fw-bolder fs-1">Tabel Pengeluaran</span>
+            </div>
+            <div>
+                <span class="fw-bold fs-3" id="total_saldo">Total Saldo: -</span>
+            </div>
+            <div>
+                <span class="fw-bold fs-3" id="total_pengeluaran">Total Expenses: -</span>
+            </div>
+            <div class="row mt-5">
+                <div class="col-7">
+                    <select id="filter_options" class="form-select form-select-lg mb-3 select" aria-label=".form-select-lg example">
+                        <option selected value="All">All</option>
+                        <option value="Food_Drinks">Foods & Drinks</option>
+                        <option value="Grocery">Groceries</option>
+                        <option value="Tool">Tools</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <div class="col-5 d-grid gap-2">
+                    <button class="btn btn-secondary fw-bold fs-5 filter_button" id="filter_btn">Filter</button>
+                </div>
+            </div>
+            <table class="table table-striped mt-2 text-center align-middle">
+                <thead>
+                    <th>Title</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody id="table_pengeluaran">
+                    <!-- implementasi looping di javascript -->
+                </tbody>
+            </table>
+            <div class="row mt-5">
+                <div class="col-6 d-grid gap-2">
+                    <button class="btn btn-success filter_btn" id="show_all">Show All</button>
+                </div>
+                <div class="col-6 d-grid gap-2">
+                    <button class="btn btn-danger filter_btn" id="clear_all">Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-3" id="pemasukan">
+            <div class="title text-center">
+                <span class="fw-bolder fs-1">Pemasukan</span>
+            </div>
+            <form id="form_pemasukan" action="" class="">
+                <div class="mb-3">
+                  <label for="input_uangMasuk" class="form-label">Uang Masuk</label>
+                  <input type="number" class="form-control" id="input_uangMasuk" aria-describedby="uangMasuk" placeholder="20000, etc">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-primary" id="submit_pemasukan">Submit</button>
+                  </div>
+                
+            </form>
+        </div>
+
+        <div class="row mt-5 pt-3 mb-5" id="pengeluaran">
+            <div class="title text-center">
+                <span class="fw-bolder fs-1">Pengeluaran</span>
+            </div>
+            <form id="form_pengeluaran" action="" class="">
+                <div class="mb-3">
+                  <label for="input_titlePengeluaran" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="input_titlePengeluaran" aria-describedby="input_titlePengeluaran" placeholder="Makan siang, Alat mandi, etc">
+                </div>
+                <div class="mb-3">
+                    <label for="input_jumlahPengeluaran" class="form-label">Amount</label>
+                    <input type="number" class="form-control" id="input_jumlahPengeluaran" aria-describedby="input_jumlahPengeluaran" placeholder="20000, etc">
+                </div>
+                <div class="mb-3">
+                    <label for="input_categoryPengeluaran" class="form-label">Category</label>
+                    <select id="input_categoryPengeluaran" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected value="Food_Drinks">Foods & Drinks</option>
+                        <option value="Grocery">Groceries</option>
+                        <option value="Tool">Tools</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-primary" id="submit_pengeluaran">Submit</button>
+                </div>
+                
+              </form>
+        </div>
+
+
+        <div class="row mt-5 pt-3 mb-5" id="update_data">
+            <div class="title text-center">
+                <span class="fw-bolder fs-1">Update Data</span>
+            </div>
+            <form id="update_form" action="" class="">
+                <div class="mb-3">
+                  <label for="update_title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="update_title" aria-describedby="input_titlePengeluaran" placeholder="Makan siang, Alat mandi, etc">
+                </div>
+                <div class="mb-3">
+                    <label for="update_amount" class="form-label">Amount</label>
+                    <input type="number" class="form-control" id="update_amount" aria-describedby="input_jumlahPengeluaran" placeholder="20000, etc">
+                </div>
+                <div class="mb-3">
+                    <label for="update_category" class="form-label">Category</label>
+                    <select id="update_category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <option selected value="Food_Drinks">Foods & Drinks</option>
+                        <option value="Grocery">Groceries</option>
+                        <option value="Tool">Tools</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-primary" id="submit_update">Update</button>
+                </div>
+                
+              </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

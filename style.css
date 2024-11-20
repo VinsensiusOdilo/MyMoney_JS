@@ -1,0 +1,23 @@
+body{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.header{
+    top: 0;
+    background-color: black;
+}
+
+.navbar{
+    background-color: #e3f2fd;
+}
+
+.select{
+    height: 50px;
+}
+
+.filter_button{
+    height: 50px;
+}
